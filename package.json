@@ -1,5 +1,5 @@
 {
-  "name": "ts-stringoperations",
+  "name": "stringoperations",
   "version": "0.5.0",
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures.",
   "main": "dist/index.js",
