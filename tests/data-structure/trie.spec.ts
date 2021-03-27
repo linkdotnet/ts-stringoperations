@@ -14,7 +14,27 @@ describe(Trie.name, () => {
 
       const actualHit = trie.contains(wordToSearch)
 
-      expect(actualHit).toBe(expectedHit)
+      expect(expectedHit).toBe(actualHit)
     })
+  })
+
+  it('should not find substrings', () => {
+    const trie = new Trie()
+    trie.addWord('abcde')
+    trie.addWord('abcdefg')
+    trie.addWord('efgh')
+
+    const actualHit = trie.contains('efg')
+
+    expect(actualHit).toBeFalse()
+  })
+
+  it('should find startswith', () => {
+    const trie = new Trie()
+    trie.addWord('abcde')
+
+    const actualHit = trie.startsWith('abc')
+
+    expect(actualHit).toBeTrue()
   })
 })

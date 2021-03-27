@@ -9,7 +9,14 @@
     "lint:fix": "eslint --fix --ext .ts .",
     "test": "jasmine-ts --config=jasmine.json --captureExceptions --verbose"
   },
-  "keywords": ["string", "levenshtein", "rope", "largest common substring", "substring", "largest common subsequence"],
+  "keywords": [
+    "string",
+    "levenshtein",
+    "rope",
+    "largest common substring",
+    "substring",
+    "largest common subsequence"
+  ],
   "author": "LinkDotNet",
   "license": "MIT",
   "homepage": "https://github.com/linkdotnet/ts-stringoperations",

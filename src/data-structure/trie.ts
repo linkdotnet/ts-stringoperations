@@ -2,6 +2,7 @@ export class Trie {
   private children: { [key: string] : Trie } = {}
   private isLeaf: boolean = false
 
+  // eslint-disable-next-line no-useless-constructor
   public constructor (private ignoreCase = false) { }
 
   public addWord (word: string) {
@@ -28,12 +29,21 @@ export class Trie {
     return node !== undefined && node.isLeaf
   }
 
+  public startsWith (text: string): boolean {
+    if (text.length === 0) {
+      return false
+    }
+
+    return this.findNode(text) !== undefined
+  }
+
   private createOrGetNode (character: string, children: { [key: string] : Trie }): Trie {
     let node: Trie
     if (children[character] !== undefined) {
       node = children[character]
     } else {
       node = new Trie(this.ignoreCase)
+      children[character] = node
     }
 
     return node

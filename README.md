@@ -7,3 +7,7 @@ This library implements some basic string algorithm.
  * Largest Common Subsequence
  * Largest Common Substring
  * Levenshtein Distance
+
+## Data-Structures
+ * Trie
+ * Rope
