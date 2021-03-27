@@ -1,4 +1,4 @@
-export function getLargestCommonSubsequence (one: string, two: string, ignoreCase: boolean): string {
+export function getLargestCommonSubsequence (one: string, two: string, ignoreCase = false): string {
   const lcsMatrix = createLargestCommonSubsequenceMatrix(one, two, ignoreCase)
   return getLongestCommonSubsequenceBackTrack(lcsMatrix, one, two, one.length, two.length, ignoreCase)
 }

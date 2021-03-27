@@ -13,6 +13,10 @@ export class Rope {
       this.weight = 0
     }
 
+    public static Create (text: string, leafLength = 8): Rope {
+      return this.CreateInternal(text, leafLength, 0, text.length - 1)
+    }
+
     private static CreateInternal (text: string, leafLength: number, leftIndex: number, rightIndex: number): Rope {
       const node = new Rope()
 
@@ -37,7 +41,7 @@ export class Rope {
       return node.left !== undefined ? this.GetWeightInternal(node.left) : node.fragment.length
     }
 
-    private CalculateAndSetWeight() {
+    private CalculateAndSetWeight () {
       this.weight = this.left === undefined ? this.fragment.length : Rope.GetWeightInternal(this.left)
     }
 }
