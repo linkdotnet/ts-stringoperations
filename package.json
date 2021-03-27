@@ -1,6 +1,6 @@
 {
   "name": "@linkdotnet/stringoperations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,9 +34,7 @@
     "jasmine": "^3.7.0",
     "jasmine-spec-reporter": "^6.0.0",
     "jasmine-ts": "^0.3.0",
-    "ts-node": "^7.0.1"
-  },
-  "dependencies": {
+    "ts-node": "^7.0.1",
     "typescript": "^4.2.3"
   }
 }
