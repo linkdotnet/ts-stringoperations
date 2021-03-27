@@ -1,0 +1,29 @@
+{
+  "name": "ts-stringoperations",
+  "version": "0.5.0",
+  "description": "Collection of string utilities. Edit-Distances, Search and Data structures.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint:fix": "eslint --fix --ext .ts .",
+    "test": "jasmine-ts --config=jasmine.json --captureExceptions --verbose"
+  },
+  "keywords": [],
+  "author": "LinkDotNet",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "^3.6.9",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.23.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "jasmine": "^3.7.0",
+    "jasmine-spec-reporter": "^6.0.0",
+    "jasmine-ts": "^0.3.0",
+    "ts-node": "^7.0.1"
+  }
+}
