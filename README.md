@@ -1,4 +1,4 @@
-# String Operations for TypeSCript
+# String Operations for TypeScript
 
 This library implements some basic string algorithm.
 
