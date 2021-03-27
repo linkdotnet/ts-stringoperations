@@ -1,7 +1,7 @@
 {
-  "name": "stringoperations",
+  "name": "@linkdotnet/stringoperations",
   "version": "0.1.0",
-  "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example rope, levenshtein distance.",
+  "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,7 +15,8 @@
     "rope",
     "largest common substring",
     "substring",
-    "largest common subsequence"
+    "largest common subsequence",
+    "trie"
   ],
   "author": "LinkDotNet",
   "license": "MIT",
@@ -34,5 +35,8 @@
     "jasmine-spec-reporter": "^6.0.0",
     "jasmine-ts": "^0.3.0",
     "ts-node": "^7.0.1"
+  },
+  "dependencies": {
+    "typescript": "^4.2.3"
   }
 }
