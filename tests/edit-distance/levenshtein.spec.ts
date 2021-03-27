@@ -1,4 +1,4 @@
-import { getLevenshteinDistance } from '../src/edit-distance/levenshtein'
+import { getLevenshteinDistance } from '../../src/edit-distance/levenshtein'
 
 describe(getLevenshteinDistance.name, () => {
   it('should get levenshtein distance', () => {
