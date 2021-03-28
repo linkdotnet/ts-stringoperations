@@ -37,4 +37,15 @@ describe(Trie.name, () => {
 
     expect(actualHit).toBeTrue()
   })
+
+  it('should get all keys with prefix', () => {
+    const trie = new Trie()
+    trie.addWord('Hello')
+    trie.addWord('Melone')
+    trie.addWord('Helsinki')
+
+    const actualHits = trie.getWordsWithPrefix('Hel')
+
+    expect(2).toBe(actualHits.length)
+  })
 })

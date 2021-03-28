@@ -37,6 +37,19 @@ export class Trie {
     return this.findNode(text) !== undefined
   }
 
+  public getWordsWithPrefix (prefix: string): string[] {
+    const node = this.findNode(prefix)
+    if (!node) {
+      return []
+    }
+
+    const results: string[] = []
+    const prefixes = this.stringToCharArray(prefix)
+
+    this.collect(node, prefixes, results)
+    return results
+  }
+
   private createOrGetNode (character: string, children: { [key: string] : Trie }): Trie {
     let node: Trie
     if (children[character] !== undefined) {
@@ -64,5 +77,26 @@ export class Trie {
     }
 
     return currentNode
+  }
+
+  private stringToCharArray(prefix: string) {
+    const prefixes: string[] = []
+    for (let i = 0; i < prefix.length; i++) {
+      prefixes.push(prefix[i])
+    }
+    return prefixes
+  }
+
+  private collect (node: Trie, prefix: string[], results: string[]) {
+    if (Object.keys(node.children).length === 0) {
+      results.push(prefix.join(''))
+      return
+    }
+
+    Object.keys(node.children).forEach(char => {
+      prefix.push(char)
+      this.collect(node.children[char], prefix, results)
+      prefix.pop()
+    })
   }
 }
