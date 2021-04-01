@@ -48,4 +48,32 @@ describe(Trie.name, () => {
 
     expect(2).toBe(actualHits.length)
   })
+
+  it('should delete word in trie', () => {
+    const trie = new Trie()
+    trie.addWord('Hello')
+    trie.addWord('Melone')
+
+    trie.delete('Hello')
+
+    expect(false).toBe(trie.contains('Hello'))
+  })
+
+  it('should only delete word in trie when whole sequence matches', () => {
+    const trie = new Trie()
+    trie.addWord('Hello')
+
+    trie.delete('Hallo')
+
+    expect(true).toBe(trie.contains('Hello'))
+  })
+
+  fit('should only delete word in trie when whole word', () => {
+    const trie = new Trie()
+    trie.addWord('Hello')
+
+    trie.delete('Hel')
+
+    expect(true).toBe(trie.contains('Hello'))
+  })
 })
