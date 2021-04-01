@@ -1,3 +1,12 @@
+/**
+ * Gets the largest common substring of two given strings
+ * @param one First word
+ * @param two Second word
+ * @param ignoreCase If true, the string compares ignoring the case. So 'd' and 'D' would match
+ * @returns Largest common substring
+ * @remarks If ignoreCase is true, the casing of one will be returned as largest common substring.
+ * If word one is 'typeSCRIPT' and word two is 'JAVAscript' then 'SCRIPT' will be returned
+ */
 export function getLargestCommonSubstring (one: string, two: string, ignoreCase = false) {
   const lcsMatrix = getLargestCommonSubstringMatrix(one, two, ignoreCase)
 

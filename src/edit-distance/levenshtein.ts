@@ -1,3 +1,12 @@
+/**
+ * Calculates the Levenshtein distance of two given strings
+ * @param one First word
+ * @param two Second word
+ * @param ignoreCase Ignore case, when comparing each character
+ * @param substitutionCost Cost of a substitution. Per default set to 1
+ * @param abortCost If abortCost is met, the function will immediately return (with abortCost as return value) 
+ * @returns Levenshtein distance
+ */
 export function getLevenshteinDistance (one: string, two: string, ignoreCase = false, substitutionCost = 1, abortCost = Number.MAX_SAFE_INTEGER): number {
   if (one.length === 0) {
     return two.length
