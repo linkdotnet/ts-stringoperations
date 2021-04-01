@@ -1,6 +1,6 @@
 {
   "name": "@linkdotnet/stringoperations",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
