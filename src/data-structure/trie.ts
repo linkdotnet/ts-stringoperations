@@ -55,6 +55,7 @@ export class Trie {
    * Returns all words in the trie which starts with the given prefix
    * @param prefix Starting sequence which all returned words have to match
    * @returns All words in the trie which start with the given prefix
+
    */
   public getWordsWithPrefix (prefix: string): string[] {
     const node = this.findNode(prefix)
@@ -70,11 +71,12 @@ export class Trie {
   }
 
   /**
-   * Deletes the word out of the trie
-   * @param word Word to delete
+   * Deletes the key out of the trie. When multiple words matches this key all of them get deleted
+   * @param key Word to delete
+   * @remarks If trie contains out of 'Hello', 'Helsinki' and delete('Hel') is called, the trie is empty
    */
-  public delete (word: string) {
-    Trie.deleteInternal(this, word, 0)
+  public delete (key: string) {
+    Trie.deleteInternal(this, key, 0)
   }
 
   private createOrGetNode (character: string, children: { [key: string] : Trie }): Trie {

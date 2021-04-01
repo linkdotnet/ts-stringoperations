@@ -67,13 +67,4 @@ describe(Trie.name, () => {
 
     expect(true).toBe(trie.contains('Hello'))
   })
-
-  fit('should only delete word in trie when whole word', () => {
-    const trie = new Trie()
-    trie.addWord('Hello')
-
-    trie.delete('Hel')
-
-    expect(true).toBe(trie.contains('Hello'))
-  })
 })
