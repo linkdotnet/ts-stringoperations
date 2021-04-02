@@ -12,6 +12,7 @@
   "keywords": [
     "string",
     "levenshtein",
+    "hamming distance",
     "rope",
     "longest common substring",
     "substring",

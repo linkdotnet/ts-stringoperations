@@ -26,6 +26,7 @@ const distance = getLevenshteinDistance('Hello', 'Hallo') // 1
  * Longest Common Subsequence
  * Longest Common Substring
  * Levenshtein Distance
+ * Hamming Distance
 
 ## Data-Structures
  * Trie
