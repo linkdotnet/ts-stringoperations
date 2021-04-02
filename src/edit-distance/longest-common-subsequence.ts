@@ -1,18 +1,18 @@
 /**
- * Computes and returns the largest common subsequence of two strings
+ * Computes and returns the longest common subsequence of two strings
  * @param one First string
  * @param two Second string
  * @param ignoreCase If true, the string compares ignoring the case. So 'd' and 'D' would match
- * @returns Largest common subsequence
- * @remarks If ignoreCase is true, the casing of one will be returned as largest common subsequence.
+ * @returns Longest common subsequence
+ * @remarks If ignoreCase is true, the casing of one will be returned as longest common subsequence.
  * If word one is 'HeLlO' and word two is 'Hallo' then 'HLlO' will be returned
  */
-export function getLargestCommonSubsequence (one: string, two: string, ignoreCase = false): string {
-  const lcsMatrix = createLargestCommonSubsequenceMatrix(one, two, ignoreCase)
+export function getLongestCommonSubsequence (one: string, two: string, ignoreCase = false): string {
+  const lcsMatrix = createLongestCommonSubsequenceMatrix(one, two, ignoreCase)
   return getLongestCommonSubsequenceBackTrack(lcsMatrix, one, two, one.length, two.length, ignoreCase)
 }
 
-function createLargestCommonSubsequenceMatrix (one: string, two: string, ignoreCase: boolean): number[][] {
+function createLongestCommonSubsequenceMatrix (one: string, two: string, ignoreCase: boolean): number[][] {
   const lcsMatrix: number[][] = new Array(one.length + 1).fill(0).map(() => new Array(two.length + 1).fill(0))
 
   for (let i = 1; i <= one.length; i++) {

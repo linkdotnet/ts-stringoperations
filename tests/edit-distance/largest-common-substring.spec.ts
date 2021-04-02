@@ -1,7 +1,7 @@
-import { getLargestCommonSubstring } from '../../src/edit-distance/largest-common-substring'
+import { getLongestCommonSubstring } from '../../src/edit-distance/longest-common-substring'
 
-describe(getLargestCommonSubstring.name, () => {
-  it('should get correct largest common substring', () => {
+describe(getLongestCommonSubstring.name, () => {
+  it('should get correct longest common substring', () => {
     [
       { one: 'ThatIsAWord', two: 'Word', ignoreCase: false, expectedLcs: 'Word' },
       { one: 'WordLonger', two: 'longerWord', ignoreCase: true, expectedLcs: 'Longer' },
@@ -9,7 +9,7 @@ describe(getLargestCommonSubstring.name, () => {
       { one: 'testapps', two: 'appicontest', ignoreCase: true, expectedLcs: 'test' },
       { one: 'Hello', two: 'abc', ignoreCase: false, expectedLcs: '' }
     ].forEach(({ one, two, ignoreCase, expectedLcs }) => {
-      const actual = getLargestCommonSubstring(one, two, ignoreCase)
+      const actual = getLongestCommonSubstring(one, two, ignoreCase)
 
       expect(actual).toBe(expectedLcs)
     })
