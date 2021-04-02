@@ -1,6 +1,6 @@
 {
   "name": "@linkdotnet/stringoperations",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,9 +13,9 @@
     "string",
     "levenshtein",
     "rope",
-    "largest common substring",
+    "longest common substring",
     "substring",
-    "largest common subsequence",
+    "longest common subsequence",
     "trie"
   ],
   "author": "LinkDotNet",
