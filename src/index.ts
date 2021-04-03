@@ -1,5 +1,5 @@
 export { getLongestCommonSubstring } from './edit-distance/longest-common-substring'
-export { getLongestCommonSubsequence } from './edit-distance/longest-common-subsequence'
+export { getLongestCommonSubsequence, getClosestWord, getClosestWords } from './edit-distance/longest-common-subsequence'
 export { getLevenshteinDistance } from './edit-distance/levenshtein'
 export { getHammingDistance } from './edit-distance/hamming-distance'
 export { Trie } from './data-structure/trie'

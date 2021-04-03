@@ -40,6 +40,15 @@ const longestCommonSubstring = getLongestCommonSubstring('testapps', 'appicontes
 const distance = getLevenshteinDistance('Hello', 'Hallo') // 1
 ```
 
+With the longest common subsequence we can also determine the most similar word.
+This helps for example if you want to find out the closest word to an user given input
+```ts
+import { getClosestWord } from '@linkdotnet/stringoperations'
+
+const closestWord = getClosestWord(userInput, false, ['...'])
+console.log(`Did you mean ${closestWord} instead of ${userInput}?')
+```
+
 ### Search
 If you want to find all occurrences of a string use the `findAll` method. The function implements the Boyer-Moore algorithm with Bad-Character table.
 ```ts

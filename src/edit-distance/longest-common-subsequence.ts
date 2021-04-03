@@ -1,3 +1,34 @@
+export function getClosestWord (base: string, ignoreCase: boolean, words: string[]): string | undefined {
+  const closestWords = getClosestWords(base, 1, ignoreCase, words)
+
+  if (closestWords.length === 0) {
+    return undefined
+  }
+
+  return closestWords[0]
+}
+
+export function getClosestWords (base: string, count: number, ignoreCase: boolean, words: string[]): string[] {
+  if (base.length === 0) {
+    return []
+  }
+
+  if (!words || words.length === 0) {
+    return []
+  }
+
+  const wordToSimiliarity: { [key: string] : number } = {}
+  for (let i = 0; i < words.length; i++) {
+    wordToSimiliarity[words[i]] = getLongestCommonSubsequence(base, words[i], ignoreCase).length
+  }
+
+  const sorted = Object.entries(wordToSimiliarity).sort((a, b) => {
+    return b[1] - a[1]
+  })
+
+  return sorted.map(v => v[0]).slice(0, count)
+}
+
 /**
  * Computes and returns the longest common subsequence of two strings
  * @param one First string
