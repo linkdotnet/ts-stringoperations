@@ -1,9 +1,10 @@
 {
   "name": "@linkdotnet/stringoperations",
-  "version": "0.3.3",
+  "version": "0.3.7",
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [ "/dist"],
   "scripts": {
     "build": "tsc",
     "lint:fix": "eslint --fix --ext .ts .",
