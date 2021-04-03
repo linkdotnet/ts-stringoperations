@@ -1,5 +1,5 @@
 /**
- * Checks whether 'text' has an occurrence of 'word' 
+ * Checks whether 'text' has an occurrence of 'word'
  * @param text Text to look for the occurrences of 'word'
  * @param word Word to look for in 'text'
  * @param ignoreCase Ignore case, when comparing each character

@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc",
     "lint:fix": "eslint --fix --ext .ts .",
+    "lint": "eslint --ext .ts .",
     "test": "jasmine-ts --config=jasmine.json --captureExceptions --verbose"
   },
   "keywords": [
