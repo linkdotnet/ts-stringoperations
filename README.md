@@ -1,5 +1,6 @@
 # String Operations for TypeScript
 ![npm](https://img.shields.io/npm/dt/@linkdotnet/stringoperations)
+[![NodeJS CI](https://github.com/linkdotnet/ts-stringoperations/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/linkdotnet/ts-stringoperations/actions/workflows/test.yml)
 
 This library implements some basic string algorithm as well as data structures for a better way of handling strings.
 
