@@ -20,6 +20,18 @@ trie.contains('Hello') // true
 trie.getWordsWithPrefix('Hel') // [ 'Hello', 'Helsinki' ]
 ```
 
+### Rope
+The following example shows how to use the rope
+```ts
+import { Rope } from '@linkdotnet/stringoperations'
+
+let rope = Rope.create('Hello ')
+
+rope = rope.concatString('World')
+rope.toString() // 'Hello World'
+rope.charAt(2) // 'l'
+```
+
 ### Edit-Distances
 The following example shows how to use the edit-distances
 ```ts
@@ -45,7 +57,7 @@ const hasHit = contains('Hello World. Goodbye World', 'World') // true
 
 ## Data-Structures
  * Trie
- * Rope (in development)
+ * Rope
 
 ## Search
  * Boyer-Moore

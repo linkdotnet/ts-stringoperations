@@ -23,7 +23,7 @@ export class Rope {
      */
     public charAt (index: number): string {
       if (this.hasToRecaluclateWeights) {
-        this.CalculateAndSetWeight()
+        this.calculateAndSetWeight()
       }
 
       return Rope.charAtInternal(this, index)
@@ -54,7 +54,7 @@ export class Rope {
      * ```
      */
     public concatString (other: string, recalculateWeights = false): Rope {
-      const otherRope = Rope.Create(other)
+      const otherRope = Rope.create(other)
       return this.concatRope(otherRope, recalculateWeights)
     }
 
@@ -79,7 +79,7 @@ export class Rope {
       newRope.hasToRecaluclateWeights = true
 
       if (recalculateWeights) {
-        newRope.CalculateAndSetWeight()
+        newRope.calculateAndSetWeight()
       }
 
       return newRope
@@ -91,32 +91,32 @@ export class Rope {
      * @param leafLength Size of a single leaf. Every leaf is a substring of the given text
      * @returns Instance of a rope
      */
-    public static Create (text: string, leafLength = 8): Rope {
-      return this.CreateInternal(text, leafLength, 0, text.length - 1)
+    public static create (text: string, leafLength = 8): Rope {
+      return this.createInternal(text, leafLength, 0, text.length - 1)
     }
 
-    private static CreateInternal (text: string, leafLength: number, leftIndex: number, rightIndex: number): Rope {
+    private static createInternal (text: string, leafLength: number, leftIndex: number, rightIndex: number): Rope {
       const node = new Rope()
 
       if (rightIndex - leftIndex > leafLength) {
         const center = (rightIndex + leftIndex + 1) / 2
-        node.left = this.CreateInternal(text, leafLength, leftIndex, center)
-        node.right = this.CreateInternal(text, leafLength, center + 1, rightIndex)
+        node.left = Rope.createInternal(text, leafLength, leftIndex, center)
+        node.right = Rope.createInternal(text, leafLength, center + 1, rightIndex)
       } else {
-        node.fragment = text.substr(leftIndex, rightIndex - leftIndex)
+        node.fragment = text.slice(leftIndex, rightIndex + 1)
       }
 
-      node.CalculateAndSetWeight()
+      node.calculateAndSetWeight()
 
       return node
     }
 
-    private static GetWeightInternal (node: Rope): number {
+    private static getWeightInternal (node: Rope): number {
       if (node.left !== undefined && node.right !== undefined) {
-        return this.GetWeightInternal(node.left) + this.GetWeightInternal(node.right)
+        return this.getWeightInternal(node.left) + this.getWeightInternal(node.right)
       }
 
-      return node.left !== undefined ? this.GetWeightInternal(node.left) : node.fragment.length
+      return node.left !== undefined ? this.getWeightInternal(node.left) : node.fragment.length
     }
 
     private static charAtInternal (node: Rope, index: number): string {
@@ -131,8 +131,8 @@ export class Rope {
       return node.fragment[index]
     }
 
-    private CalculateAndSetWeight () {
-      this.weight = this.left === undefined ? this.fragment.length : Rope.GetWeightInternal(this.left)
+    private calculateAndSetWeight () {
+      this.weight = this.left === undefined ? this.fragment.length : Rope.getWeightInternal(this.left)
     }
 
     private static getStrings (node: Rope, results: string[]) {
