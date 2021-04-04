@@ -1,16 +1,14 @@
 import { getHammingDistance } from '../../src/edit-distance/hamming-distance'
 
 describe(getHammingDistance.name, () => {
-  it('should get levenshtein distance', () => {
-    [
-      { one: 'Hallo', two: 'Hello', ignoreCase: false, expectedCost: 1 },
-      { one: 'a', two: 'abc', ignoreCase: false, expectedCost: 0 },
-      { one: 'abc', two: 'a', ignoreCase: false, expectedCost: 2 },
-      { one: 'haLLo', two: 'Hello', ignoreCase: true, expectedCost: 1 }
-    ].forEach(({ one, two, ignoreCase, expectedCost }) => {
-      const actual = getHammingDistance(one, two, ignoreCase)
+  test.each([
+    ['Hallo', 'Hello', false, 1],
+    ['a', 'abc', false, 0],
+    ['abc', 'a', false, 2],
+    ['haLLo', 'Hello', true, 1]
+  ])('should get hamming distance for words %p and %p', (one, two, ignoreCase, expectedCost) => {
+    const actual = getHammingDistance(one, two, ignoreCase)
 
-      expect(actual).toBe(expectedCost)
-    })
+    expect(actual).toBe(expectedCost)
   })
 })
