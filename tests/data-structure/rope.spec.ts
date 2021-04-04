@@ -31,7 +31,8 @@ describe(Rope.name, () => {
   test.each([
     ['HelloWorld', 4, 'Hello', 'World'],
     ['HelloWorld', 5, 'HelloW', 'orld'],
-    ['HelloWorld', 6, 'HelloWo', 'rld']
+    ['HelloWorld', 6, 'HelloWo', 'rld'],
+    ['0123456789', 0, '0', '123456789']
   ])('split word %p at index %p should return %p and %p', (word, index, expectedLeftSide, expectedRightSide) => {
     const rope = Rope.create(word)
 
@@ -39,5 +40,20 @@ describe(Rope.name, () => {
 
     expect(values[0].toString()).toBe(expectedLeftSide)
     expect(values[1]!.toString()).toBe(expectedRightSide)
+  })
+
+  it('should throw error when negative index', () => {
+    const rope = Rope.create('1234')
+
+    expect(() => { rope.split(-1) }).toThrowError()
+  })
+
+  it('should return whole tree as left part when index === length', () => {
+    const rope = Rope.create('01234')
+
+    const pair = rope.split(4)
+
+    expect(pair[0].toString()).toBe('01234')
+    expect(pair[1]).toBeUndefined()
   })
 })
