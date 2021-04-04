@@ -82,4 +82,9 @@ describe(Rope.name, () => {
 
     expect(newRope.toString()).toBe('0126789')
   })
+  it('should have positive index and length', () => {
+    const rope = Rope.create('01234')
+    expect(() => { rope.delete(-1, 5) }).toThrowError()
+    expect(() => { rope.delete(1, 0) }).toThrowError()
+  })
 })

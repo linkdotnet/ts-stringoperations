@@ -116,8 +116,12 @@ export class Rope {
      * @returns New rope with deleted range
      */
     public delete (startIndex: number, length: number): Rope {
-      if (startIndex < 0 || length < 0) {
+      if (startIndex < 0) {
         throw new RangeError('Index was negative')
+      }
+
+      if (length <= 0) {
+        throw new RangeError('Length has to be at least 1')
       }
 
       this.checkRecalculation()
