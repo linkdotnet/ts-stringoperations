@@ -110,6 +110,25 @@ export class Rope {
     }
 
     /**
+     * Deletes a substring from the rope
+     * @param startIndex Inclusive starting index
+     * @param length Length to delete
+     * @returns New rope with deleted range
+     */
+    public delete (startIndex: number, length: number): Rope {
+      if (startIndex < 0 || length < 0) {
+        throw new RangeError('Index was negative')
+      }
+
+      this.checkRecalculation()
+
+      const beforeStartIndex = this.split(startIndex - 1)[0]
+      const afterEndIndex = this.split(startIndex + length - 1)[1]
+
+      return beforeStartIndex.concatRope(afterEndIndex)
+    }
+
+    /**
      * Creates the rope with the given text
      * @param text The initial text to add in the rope
      * @param leafLength Size of a single leaf. Every leaf is a substring of the given text

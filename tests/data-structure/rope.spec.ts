@@ -74,4 +74,12 @@ describe(Rope.name, () => {
     expect(split[0].toString()).toEqual('HelloWo')
     expect(split[1]!.toString()).toEqual('rld')
   })
+
+  it('should delete substring', () => {
+    const rope = Rope.create('0123456789')
+
+    const newRope = rope.delete(3, 3)
+
+    expect(newRope.toString()).toBe('0126789')
+  })
 })
