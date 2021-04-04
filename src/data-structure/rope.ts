@@ -86,6 +86,18 @@ export class Rope {
     }
 
     /**
+     * Splits the rope into two new ones at the defined index
+     * @param index Zero based index where the rope should be split. The index is always part of the left side of the rope
+     */
+    public split (index: number): [Rope, Rope | undefined] {
+      if (index < 0) {
+        throw new RangeError('Index was negative')
+      }
+
+      return Rope.splitRope(this, index)
+    }
+
+    /**
      * Creates the rope with the given text
      * @param text The initial text to add in the rope
      * @param leafLength Size of a single leaf. Every leaf is a substring of the given text
@@ -146,5 +158,29 @@ export class Rope {
 
       Rope.getStrings(node.left!, results)
       Rope.getStrings(node.right!, results)
+    }
+
+    private static splitRope (node: Rope, index: number): [Rope, Rope | undefined] {
+      if (!node.left) {
+        if (index === node.weight - 1) {
+          return [node, undefined]
+        }
+
+        const item1 = Rope.create(node.fragment.slice(0, index + 1))
+        const item2 = Rope.create(node.fragment.slice(index + 1, node.weight))
+        return [item1, item2]
+      }
+
+      if (index === node.weight - 1) {
+        return [node.left, node.right]
+      }
+
+      if (index < node.weight) {
+        const splitLeftSide = Rope.splitRope(node.left, index)
+        return [splitLeftSide[0], splitLeftSide[1]!.concatRope(node.right!)]
+      }
+
+      const splitRightSide = Rope.splitRope(node.right!, index - node.weight)
+      return [node.left.concatRope(splitRightSide[0]), splitRightSide[1]]
     }
 }

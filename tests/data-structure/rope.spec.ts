@@ -1,4 +1,5 @@
 import { Rope } from '../../src/data-structure/rope'
+
 describe(Rope.name, () => {
   it('should create string', () => {
     const text = 'That is my text'
@@ -25,5 +26,18 @@ describe(Rope.name, () => {
     const rope = Rope.create('01234').concatString('5678')
 
     expect('8').toBe(rope.charAt(8))
+  })
+
+  test.each([
+    ['HelloWorld', 4, 'Hello', 'World'],
+    ['HelloWorld', 5, 'HelloW', 'orld'],
+    ['HelloWorld', 6, 'HelloWo', 'rld']
+  ])('split word %p at index %p should return %p and %p', (word, index, expectedLeftSide, expectedRightSide) => {
+    const rope = Rope.create(word)
+
+    const values = rope.split(index)
+
+    expect(values[0].toString()).toBe(expectedLeftSide)
+    expect(values[1]!.toString()).toBe(expectedRightSide)
   })
 })
