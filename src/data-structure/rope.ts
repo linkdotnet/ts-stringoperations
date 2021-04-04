@@ -22,9 +22,7 @@ export class Rope {
      * @returns Returns the character at the specified index.
      */
     public charAt (index: number): string {
-      if (this.hasToRecaluclateWeights) {
-        this.calculateAndSetWeight()
-      }
+      this.checkRecalculation()
 
       return Rope.charAtInternal(this, index)
     }
@@ -79,7 +77,7 @@ export class Rope {
       newRope.hasToRecaluclateWeights = true
 
       if (recalculateWeights) {
-        newRope.calculateAndSetWeight()
+        this.checkRecalculation()
       }
 
       return newRope
@@ -93,6 +91,8 @@ export class Rope {
       if (index < 0) {
         throw new RangeError('Index was negative')
       }
+
+      this.checkRecalculation()
 
       return Rope.splitRope(this, index)
     }
@@ -153,10 +153,6 @@ export class Rope {
       return node.fragment[index]
     }
 
-    private calculateAndSetWeight () {
-      this.weight = this.left === undefined ? this.fragment.length : Rope.getWeightInternal(this.left)
-    }
-
     private static getStrings (node: Rope, results: string[]) {
       if (!node) {
         return
@@ -192,5 +188,16 @@ export class Rope {
 
       const splitRightSide = Rope.splitRope(node.right!, index - node.weight)
       return [node.left.concatRope(splitRightSide[0]), splitRightSide[1]]
+    }
+
+    private calculateAndSetWeight () {
+      this.weight = this.left === undefined ? this.fragment.length : Rope.getWeightInternal(this.left)
+    }
+
+    private checkRecalculation () {
+      if (this.hasToRecaluclateWeights) {
+        this.calculateAndSetWeight()
+        this.hasToRecaluclateWeights = true
+      }
     }
 }

@@ -65,4 +65,13 @@ describe(Rope.name, () => {
 
     expect(newRope.toString()).toBe('Hello dear World')
   })
+
+  it('should split correct after concat', () => {
+    const rope = Rope.create('Hello').concatString('World')
+
+    const split = rope.split(6)
+
+    expect(split[0].toString()).toEqual('HelloWo')
+    expect(split[1]!.toString()).toEqual('rld')
+  })
 })
