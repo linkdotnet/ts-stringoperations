@@ -70,7 +70,7 @@ export class Rope {
      * newRope.charAt(2) // This will automatically recalculate the weight
      * ```
      */
-    public concatRope (other: Rope, recalculateWeights = false): Rope {
+    public concatRope (other: Rope | undefined, recalculateWeights = false): Rope {
       const newRope = new Rope()
       newRope.left = this
       newRope.right = other
@@ -97,14 +97,16 @@ export class Rope {
       return Rope.splitRope(this, index)
     }
 
+    /**
+     * Inserts another rope into the current one and returns the merger
+     * @param rope New rope to add to the current one
+     * @param index Zero based index where the new rope has to be inserted
+     * @returns The merged rope
+     */
     public insert (rope: Rope, index: number): Rope {
       const pair = this.split(index)
       const left = pair[0].concatRope(rope)
-      if (pair[1]) {
-        return left.concatRope(pair[1])
-      }
-
-      return left
+      return left.concatRope(pair[1])
     }
 
     /**
