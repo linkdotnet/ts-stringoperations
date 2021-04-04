@@ -4,12 +4,15 @@
   "description": "Collection of string utilities. Edit-Distances, Search and Data structures. Offers for example trie, levenshtein distance.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [ "/dist"],
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint:fix": "eslint --fix --ext .ts .",
     "lint": "eslint --ext .ts .",
-    "test": "jasmine-ts --config=jasmine.json --captureExceptions --verbose"
+    "test": "jest",
+    "test:coverage": "jest --collectCoverage=true"
   },
   "keywords": [
     "string",
@@ -27,7 +30,7 @@
   "homepage": "https://github.com/linkdotnet/ts-stringoperations",
   "bugs": "https://github.com/linkdotnet/ts-stringoperations/issues",
   "devDependencies": {
-    "@types/jasmine": "^3.6.9",
+    "@types/jest": "^26.0.22",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.23.0",
@@ -35,9 +38,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "jasmine": "^3.7.0",
-    "jasmine-spec-reporter": "^6.0.0",
-    "jasmine-ts": "^0.3.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
     "ts-node": "^7.0.1",
     "typescript": "^4.2.3"
   }

@@ -26,7 +26,7 @@ describe(Trie.name, () => {
 
     const actualHit = trie.contains('efg')
 
-    expect(actualHit).toBeFalse()
+    expect(actualHit).toBe(false)
   })
 
   it('should find startswith', () => {
@@ -35,7 +35,7 @@ describe(Trie.name, () => {
 
     const actualHit = trie.startsWith('abc')
 
-    expect(actualHit).toBeTrue()
+    expect(actualHit).toBe(true)
   })
 
   it('should get all keys with prefix', () => {
