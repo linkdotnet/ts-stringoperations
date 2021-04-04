@@ -97,6 +97,16 @@ export class Rope {
       return Rope.splitRope(this, index)
     }
 
+    public insert (rope: Rope, index: number): Rope {
+      const pair = this.split(index)
+      const left = pair[0].concatRope(rope)
+      if (pair[1]) {
+        return left.concatRope(pair[1])
+      }
+
+      return left
+    }
+
     /**
      * Creates the rope with the given text
      * @param text The initial text to add in the rope

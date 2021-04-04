@@ -56,4 +56,13 @@ describe(Rope.name, () => {
     expect(pair[0].toString()).toBe('01234')
     expect(pair[1]).toBeUndefined()
   })
+
+  it('should add rope at index', () => {
+    const rope1 = Rope.create('Hello World')
+    const rope2 = Rope.create(' dear')
+
+    const newRope = rope1.insert(rope2, 4)
+
+    expect(newRope.toString()).toBe('Hello dear World')
+  })
 })
