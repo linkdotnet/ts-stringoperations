@@ -199,7 +199,7 @@ export class Rope {
     private checkRecalculation () {
       if (this.hasToRecaluclateWeights) {
         this.calculateAndSetWeight()
-        this.hasToRecaluclateWeights = true
+        this.hasToRecaluclateWeights = false
       }
     }
 }
