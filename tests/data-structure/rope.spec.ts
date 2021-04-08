@@ -87,4 +87,19 @@ describe(Rope.name, () => {
     expect(() => { rope.delete(-1, 5) }).toThrowError()
     expect(() => { rope.delete(1, 0) }).toThrowError()
   })
+
+  it('should insert rope at index', () => {
+    const rope1 = Rope.create('Herld')
+    const rope2 = Rope.create('lloWo')
+
+    const newRope = rope1.insert(rope2, 1)
+
+    expect(newRope.toString()).toBe('HelloWorld')
+  })
+
+  it('should insert string at index', () => {
+    const newRope = Rope.create('Herld').insertString('lloWo', 1)
+
+    expect(newRope.toString()).toBe('HelloWorld')
+  })
 })

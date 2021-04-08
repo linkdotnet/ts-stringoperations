@@ -110,6 +110,16 @@ export class Rope {
     }
 
     /**
+     * Inserts a string into the current rope and returns the merger
+     * @param rope New rope to add to the current one
+     * @param index Zero based index where the new rope has to be inserted
+     * @returns The merged rope
+     */
+    public insertString (text: string, index: number): Rope {
+      return this.insert(Rope.create(text), index)
+    }
+
+    /**
      * Deletes a substring from the rope
      * @param startIndex Inclusive starting index
      * @param length Length to delete
