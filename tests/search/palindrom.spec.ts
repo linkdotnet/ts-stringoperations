@@ -7,10 +7,17 @@ describe(isPalindrom.name, () => {
     ['aA', true, true],
     ['aA', false, false],
     ['aaba', false, false],
-    ['aAa', false, true]
+    ['aAa', false, true],
+    ['121', false, true]
   ])('Check if %p (ignore case: %p) is palindrom', (word, ignoreCase, expectedPalindrom) => {
     const actual = isPalindrom(word, ignoreCase)
 
     expect(actual).toBe(expectedPalindrom)
+  })
+
+  it('Should return false for empty word', () => {
+    const actual = isPalindrom('')
+
+    expect(actual).toBeFalsy()
   })
 })

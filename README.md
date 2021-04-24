@@ -71,3 +71,4 @@ const hasHit = contains('Hello World. Goodbye World', 'World') // true
 
 ## Search
  * Boyer-Moore
+ * Palindrom
