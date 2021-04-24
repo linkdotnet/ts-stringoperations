@@ -1,4 +1,4 @@
-import { findAll } from '../../src/search/boyer-moore'
+import { contains, findAll } from '../../src/search/boyer-moore'
 
 describe(findAll.name, () => {
   it('should find all occurrences', () => {
@@ -48,5 +48,23 @@ describe(findAll.name, () => {
     const occurrences = findAll(text, pattern)
 
     expect(0).toBe(occurrences.length)
+  })
+
+  it('should return no matches when text is empty', () => {
+    const occurrences = findAll('', 'pattern')
+
+    expect(0).toBe(occurrences.length)
+  })
+
+  it('should return no matches when pattern is empty', () => {
+    const occurrences = findAll('text', '')
+
+    expect(0).toBe(occurrences.length)
+  })
+
+  it('should return if an occurrence was found', () => {
+    const actualHit = contains('That is my text', 'text')
+
+    expect(actualHit).toBeTruthy()
   })
 })
