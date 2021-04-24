@@ -25,4 +25,22 @@ describe(getLongestCommonSubsequence.name, () => {
     expect(actual).toBeTruthy()
     expect('Hallo').toBe(actual!)
   })
+
+  it('should return empty array when base word empty', () => {
+    const actual = getClosestWords('', 1, false, ['Test'])
+
+    expect(actual.length).toBe(0)
+  })
+
+  it('should return empty array when references words empty', () => {
+    const actual = getClosestWords('Test', 1, false, [])
+
+    expect(actual.length).toBe(0)
+  })
+
+  it('should return undefinded when no closest word', () => {
+    const actual = getClosestWord('', false, ['test'])
+
+    expect(actual).toBeUndefined()
+  })
 })
